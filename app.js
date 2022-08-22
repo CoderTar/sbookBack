@@ -8,7 +8,7 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-
+// 测试修改git
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 配置跨域
