@@ -140,6 +140,7 @@ var updateUser = require("./routes/admin/updateUser")
 var getOnlieUser = require('./routes/admin/gerAllOnline')
 var setIpTime = require("./routes/admin/setUserIp")
 var forcedDown = require("./routes/admin/forcedDown")
+var deleteUser = require("./routes/admin/deleteUser")
 
 // 用户
 var userBycode = require('./routes/user/userByInvitation')
@@ -147,7 +148,6 @@ var userByPhone = require('./routes/user/userByphone')
 var detailByCusid = require('./routes/user/detailByCusid')
 var detailMsg = require('./routes/user/detailMsg')
 var detailByCodeMsg = require('./routes/user/detailByCodeMsg')
-
 var getAllCustomer = require('./routes/user/allCustomer')
 var getAllMessage = require("./routes/user/allMsg")
 
@@ -182,7 +182,7 @@ app.use(updateUser);
 app.use(getOnlieUser);
 app.use(download);
 app.use(forcedDown);
-
+app.use(deleteUser);
 // 用户
 app.use(userBycode);
 app.use(userByPhone);
