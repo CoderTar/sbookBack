@@ -33,6 +33,8 @@ router.post('/Api/userByNumMsg', function (req, res, next) {
             db.query(sqlTotal, [loginNum], (err, totlList) => {
 
 
+
+                console.log("duagnxxhcaikgfdafdsa", totlList)
                 pages = totlList[0].total / pageSize
 
                 var P = String(pages).indexOf('.')

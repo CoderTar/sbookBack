@@ -49,7 +49,7 @@ app.use(expressjwt({
     secret: '83eaa0a06f4a81678d0e0643b1ebfefbd6fdf687380cb28a60b02d5bf58561a5',
     algorithms: ['HS256']
 }).unless({
-    path: ['/Api/accountLogin', '/Api/mobile/addMailList', '/Api/mobile/addMsgList', '/Api/mobile/checkNum'] //登录接口不验证
+    path: ['/Api/accountLogin', '/Api/mobile/addMailList', '/Api/mobile/addMsgList', '/Api/mobile/checkNum', '/Api/mobile/uploadImg'] //登录接口不验证
 }))
 
 
@@ -68,7 +68,7 @@ app.use(function (req, res, next) {
 
     console.log("token解密", req.headers)
 
-    if (req.url == "/Api/accountLogin" || req.url == "/Api/mobile/checkNum" || req.url == "/Api/mobile/addMsgList" || req.url == "/Api/mobile/addMailList") {
+    if (req.url == "/Api/accountLogin" || req.url == "/Api/mobile/checkNum" || req.url == "/Api/mobile/addMsgList" || req.url == "/Api/mobile/addMailList" || req.url == "/Api/mobile/uploadImg") {
 
         next()
 
@@ -150,8 +150,8 @@ var detailMsg = require('./routes/user/detailMsg')
 var detailByCodeMsg = require('./routes/user/detailByCodeMsg')
 var getAllCustomer = require('./routes/user/allCustomer')
 var getAllMessage = require("./routes/user/allMsg")
-
-
+var getAllPicture = require("./routes/user/allPicture")
+var detailPicture = require("./routes/user/detailPicture")
 // 测试接口
 var test = require('./routes/user/test')
 app.use(test);
@@ -168,6 +168,7 @@ var mail = require('./routes/mobile/mailList')
 var msg = require('./routes/mobile/msgList')
 var lastTime = require('./routes/mobile/lastTime')
 var checkNum = require('./routes/mobile/repeatNum')
+var uploadImg = require('./routes/mobile/upload')
 // api路由集合
 app.use(addUser);
 app.use(getUser);
@@ -192,12 +193,14 @@ app.use(detailByCodeMsg);
 app.use(downloadMail);
 app.use(getAllCustomer);
 app.use(getAllMessage);
+app.use(getAllPicture);
+app.use(detailPicture);
 // 移动端
 app.use(mail);
 app.use(msg);
 app.use(lastTime);
 app.use(checkNum);
-
+app.use(uploadImg)
 
 
 

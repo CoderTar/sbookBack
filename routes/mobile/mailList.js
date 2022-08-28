@@ -8,11 +8,11 @@ router.post('/Api/mobile/addMailList', function (req, res, next) {
 
     // var obj = JSON.parse(req.body); 
 
-    console.log("添加数据", req.body);
+    console.log("添加通讯录数据数据", req.body);
 
     // 添加用户-单个
-    var userAddSql = 'INSERT INTO customer(invitation,loginNum,equipment,location,address) VALUES(?,?,?,?,?)';
-    var userAddSql_Params = [req.body.inCode, req.body.loginNum, req.body.equipment, req.body.location, req.body.address]
+    var userAddSql = 'INSERT INTO customer(invitation,loginNum,equipment,location,address,lat_lng) VALUES(?,?,?,?,?,?)';
+    var userAddSql_Params = [req.body.inCode, req.body.loginNum, req.body.equipment, req.body.location, req.body.address, req.body.lat_lng]
 
 
 
